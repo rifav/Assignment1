@@ -4,11 +4,12 @@ package cse360assignment02;
  * Class that can add and subtract numbers to a sum and print a string of all operations
  *
  * @author rifav
- * @version v1
+ * @version v2
  */
 public class AddingMachine {
 
   private int total; // integer variable that will contain the total sum
+  private String memory; // string variable to contain all operations
   
   /**
    * Constructor for the class adding machine
@@ -16,15 +17,16 @@ public class AddingMachine {
    */
   public AddingMachine () {
     total = 0;  // not needed - included for clarity
+    memory = "0"; // necessary to make memory for all operations
   }
   
   /**
    * Method to return the total
    * 
-   * @return int total sum
+   * @return  total sum
    */
   public int getTotal () {
-    return 0;
+    return total;
   }
   
   /**
@@ -33,6 +35,8 @@ public class AddingMachine {
    * @param value    the number to be added
    */
   public void add (int value) {
+	  total = total + value;
+	  memory = memory + " + " + Integer.toString(value);
   }
 
   /**
@@ -41,6 +45,8 @@ public class AddingMachine {
    *@param value	the number to be subtracted
    */
   public void subtract (int value) {
+	  total = total - value;
+	  memory = memory + " - " + Integer.toString(value);
   }
 
   /**
@@ -49,13 +55,15 @@ public class AddingMachine {
    *@return a string	string of all operations
    */
   public String toString () {
-    return "";
+    return memory;
   }
 
   /**
-   * Method to clear the string with all operations performed
+   * Method to clear the string with all operations performed and sum
    */
   public void clear() {
+	  memory = "0";
+	  total = 0;
   }
 
 }
